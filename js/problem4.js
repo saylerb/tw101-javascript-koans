@@ -25,5 +25,22 @@
  Then my total is Rs 100
 
 */
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
 
-// Write your JavaScript here
+function countMoney() {
+    var notesString = ""
+    var count = 0;
+    var args = [].slice.call(arguments);
+
+    args.forEach(function(note) {
+        count += note;
+        notesString += note.toString() + " ";
+    });
+
+
+    changeElementText("#listOfNotes", notesString);
+    changeElementText("#totalCount", count);
+}
+
