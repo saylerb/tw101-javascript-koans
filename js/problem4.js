@@ -30,15 +30,22 @@ function changeElementText(element, answer) {
 }
 
 function countMoney() {
+    var validNotes = [5, 10, 20, 50, 100, 500, 1000]
     var notesString = ""
     var count = 0;
     var args = [].slice.call(arguments);
 
     args.forEach(function(note) {
-        count += note;
         notesString += note.toString() + " ";
     });
 
+    for (var i = 0; i < args.length; i++) {
+        if (validNotes.indexOf(args[i]) > -1) {
+            count += args[i];
+        } else {
+            break;
+        }
+    }
 
     changeElementText("#listOfNotes", notesString);
     changeElementText("#totalCount", count);

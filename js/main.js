@@ -10,7 +10,7 @@ $(document).ready(function() {
     fareForRide(6, 8, false);
 
     // Problem 4
-    countMoney(10, 20, 100);
+    //countMoney(10, 20, 100);
     countMoney(20, 50, 10, 20, 13, 500);
 
     // Problem 5
