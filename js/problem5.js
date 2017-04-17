@@ -34,3 +34,50 @@
  */
 
 // Write your JavaScript here
+//
+//
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function appendDiv(element, html) {
+    $(element).append(html);
+}
+
+function correctAd(adText) {
+    displayAdText(adText, "#adTextOriginal");
+
+    var correctedAdText = generateCorrectAdText(adText);
+
+    displayAdText(correctedAdText, "#adTextCorrected");
+}
+
+function displayAdText(adText, target) {
+    var count = 0;
+    adText.forEach(function(line) {
+        var adTextLine = "<div>"
+        line.forEach(function(word) {
+            adTextLine += word + " ";
+            count += 1;
+        });
+
+        adTextLine += "</div>";
+
+        appendDiv(target, adTextLine);
+        changeElementText("#adCount", count);
+    });
+}
+
+function generateCorrectAdText(adText) {
+    var correctedText = [];
+
+    adText.forEach(function(line, index) {
+        if (index === 1) {
+            correctedText.push(line.reverse());
+        } else {
+            correctedText.push(line);
+        }
+    });
+
+    return correctedText;
+}
